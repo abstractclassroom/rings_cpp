@@ -5,7 +5,7 @@ class RingElement {};
 
 class IntegerRingElement : public RingElement {
     public:
-        const int value;
+        int value;
         IntegerRingElement(int value) : value(value) {}
         IntegerRingElement operator+(const IntegerRingElement &rightOperand) const;
         IntegerRingElement operator-(const IntegerRingElement &rightOperand) const;
@@ -15,8 +15,8 @@ class IntegerRingElement : public RingElement {
 
 class RationalRingElement : public RingElement {
     public:
-        const int numerator;
-        const int denominator;
+        int numerator;
+        int denominator;
         RationalRingElement(int numerator, int denominator);
         RationalRingElement operator+(const RationalRingElement &rightOperand) const;
         RationalRingElement operator-(const RationalRingElement &rightOperand) const;
@@ -48,6 +48,7 @@ class MatrixRingElement : public RingElement {
         T **matrix;
         MatrixRingElement(int size);
         MatrixRingElement(int size, T **matrix);
+        void setElement(int row, int column, T value);
         MatrixRingElement operator+(const MatrixRingElement &rightOperand) const;
         MatrixRingElement operator-(const MatrixRingElement &rightOperand) const;
         MatrixRingElement operator*(const MatrixRingElement &rightOperand) const;
